@@ -10,8 +10,6 @@ import {
   FaItalic,
   FaStrikethrough,
 } from "react-icons/fa";
-import { PiListBullets } from "react-icons/pi";
-import { RiListOrdered } from "react-icons/ri";
 
 function Menubar({ editor }) {
   const Options = useMemo(() => {

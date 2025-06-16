@@ -8,11 +8,7 @@ import {
   verticalListSortingStrategy,
   arrayMove,
 } from "@dnd-kit/sortable";
-import {
-  DndContext,
-  closestCorners,
-  defaultDropAnimationSideEffects,
-} from "@dnd-kit/core";
+import { DndContext, closestCorners } from "@dnd-kit/core";
 
 const fetcher = async (url, deviceId) => {
   const response = await fetch(url, {
@@ -91,16 +87,6 @@ function CardList({ deviceId, onSetNote, isCalendarPage }) {
       const newData = arrayMove(data, oldIndex, newIndex);
       mutate(["/api/notes", deviceId], newData, false);
     }
-  };
-
-  const dropAnimation = {
-    sideEffects: defaultDropAnimationSideEffects({
-      styles: {
-        active: {
-          opacity: "0.5",
-        },
-      },
-    }),
   };
 
   return (
