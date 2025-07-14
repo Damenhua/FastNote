@@ -12,9 +12,14 @@ function CalendarPage() {
   useEffect(() => {
     try {
       if (note.length > 0) {
-        const filteredNotes = note.filter(
-          (note) => note.date.slice(0, 10) === date.toISOString().slice(0, 10),
-        );
+        const filteredNotes = note.filter((note) => {
+          const noteDate = new Date(note.date);
+          return (
+            noteDate.getFullYear() === date.getFullYear() &&
+            noteDate.getMonth() === date.getMonth() &&
+            noteDate.getDate() === date.getDate()
+          );
+        });
         setFilterNotes(filteredNotes || null);
       } else {
         setFilterNotes(null);

@@ -80,14 +80,14 @@ function CardItem({ note, onDelete, isCalendarPage = false }) {
           <RiDeleteBin5Line />
         </button>
       </div>
-      <div {...attributes} {...listeners} className="">
+      <div {...attributes} {...listeners} className="space-y-10">
         <p className="text-xl text-gray-500">
           {content.replace(/<[^>]*>/g, "").length > 20
             ? content.replace(/<[^>]*>/g, "").slice(0, 20) + "..."
             : content.replace(/<[^>]*>/g, "")}
         </p>
+        <div className="text-gray-500">{formatDate(date)}</div>
       </div>
-      <div className="text-gray-500">{formatDate(date)}</div>
     </div>
   );
 }
